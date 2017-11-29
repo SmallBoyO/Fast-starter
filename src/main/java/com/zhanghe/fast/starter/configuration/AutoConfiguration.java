@@ -7,7 +7,8 @@ import com.zhanghe.fast.starter.aop.ValidateTreatement;
 import com.zhanghe.fast.starter.service.UserService;
 
 @Configuration
-public class UserAutoConfiguration {
+public class AutoConfiguration {
+	
     @Bean
     public UserService dbCountRunner() {
         return new UserService();

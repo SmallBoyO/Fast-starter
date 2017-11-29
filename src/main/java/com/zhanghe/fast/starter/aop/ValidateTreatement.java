@@ -30,6 +30,7 @@ public class ValidateTreatement {
      
      @Around("execution(* *..controller.*.*(..))")
      public Object twiceAsOld1(ProceedingJoinPoint pjp) throws Throwable{
+    	 System.out.println("---");
          Object[] args = pjp.getArgs();
          for(Object arg:args){
         	 if(arg instanceof BindingResult){

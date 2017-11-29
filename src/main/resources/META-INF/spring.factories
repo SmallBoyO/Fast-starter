@@ -1,2 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.zhanghe.fast.starter.configuration.UserAutoConfiguration
+com.zhanghe.fast.starter.configuration.AutoConfiguration,\
+com.zhanghe.fast.starter.configuration.JDBCConfiguration,\
+com.zhanghe.fast.starter.configuration.MybatisPlusConfiguration,\
+com.zhanghe.fast.starter.configuration.SwaggerConfiguration
