@@ -52,11 +52,11 @@ fast.swagger.basepackage | swagger扫描的基础包 |
 
 ## 编写代码
 ### 示例项目
-[https://gitee.com/SmallBoys/fast-starter](https://gitee.com/SmallBoys/fast-starter)
+[https://gitee.com/SmallBoys/fast-starter-demo](https://gitee.com/SmallBoys/fast-starter-demo)
 
 ### 编写controller,service,mapper
 #### contoller
-和普通springmvc编写一样在类抬头添加`@Controller`注解，在方法抬头添加`@RequestMapping`注解
+controller建议放在controller包下,否则无法自动处理参数校验失败的情况。和普通springmvc编写一样在类抬头添加`@Controller`注解，在方法抬头添加`@RequestMapping`注解
 - 返回值  
 返回json数据可以使用`ReturnValue`类
 ```
@@ -66,7 +66,7 @@ ReturnValue属性说明
 
 属性 | 类型 | 说明
 ---|---|---
-ret | Integer | 返回值
+ret | Integer | 返回值 
 message | String | 信息
 obj | T | 返回的单个对象(在单个对象查询时使用)
 result | List<T> | 返回的对象list(在多个对象查询时使用)
@@ -82,7 +82,8 @@ total | Long | 总数据数
 result | List<T> | 返回的对象list
 
 - 使用 hibernate-validator  
-在传入vo前加上`@Valid`注解,并添加`BindingResult`参数,在vo中配置验证规则
+在传入vo前加上`@Valid`注解,并添加`BindingResult`参数,在vo中配置验证规则  
+验证规则可参考[Hibernate Validation各注解](http://blog.csdn.net/fmwind/article/details/38358497)
 ```
 @RequestMapping(value="validate",method=RequestMethod.GET)
 @ResponseBody
@@ -110,3 +111,6 @@ public class demoVO {
 	}
 }
 ```
+验证失败目前会自动返回一个包含错误信息的ReturnValue,错误代码为-2  
+- swagger api配置  
+
