@@ -62,7 +62,8 @@ fast.swagger.basepackage | swagger扫描的基础包 |
 ```
 return new ReturnValue<User>(1, "").toJson(); 
 ```
-ReturnValue属性说明
+ReturnValue属性说明  
+
 属性 | 类型 | 说明
 ---|---|---
 ret | Integer | 返回值
@@ -71,7 +72,8 @@ obj | T | 返回的单个对象(在单个对象查询时使用)
 result | List<T> | 返回的对象list(在多个对象查询时使用)
 page | PageUtil<T> | 返回的带分页的结果(在分页查询时使用)
 
-PageUtil属性说明
+PageUtil属性说明  
+
 属性 | 类型 | 说明
 ---|---|---
 correntPage | Long | 当前页
