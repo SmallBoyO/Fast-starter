@@ -84,6 +84,7 @@ result | List<T> | 返回的对象list
 - 使用 hibernate-validator  
 在传入vo前加上`@Valid`注解,并添加`BindingResult`参数,在vo中配置验证规则  
 验证规则可参考[Hibernate Validation各注解](http://blog.csdn.net/fmwind/article/details/38358497)
+
 ```
 @RequestMapping(value="validate",method=RequestMethod.GET)
 @ResponseBody
@@ -111,6 +112,35 @@ public class demoVO {
 	}
 }
 ```
+
 验证失败目前会自动返回一个包含错误信息的ReturnValue,错误代码为-2  
 - swagger api配置  
+swagger注解参考[swagger常用注解说明](http://www.jianshu.com/p/12f4394462d5)
+#### mapper
+mapper继承`BaseMapper`之后,可以使用mybasit-plus的通用crud
 
+```
+@Mapper
+public interface UserMapper extends BaseMapper<User> {
+	
+	@Select("select count(*) from user")
+	public Integer CountUser();
+		
+}
+
+public List<User> getUserList( UserListVO user ) {
+	Wrapper<User> wrapper = new EntityWrapper<User>();
+	if(user.getUserName()!=null){
+		wrapper.eq(User.USERNAME, user.getUserName());
+	}
+	if(user.getName()!=null){
+		wrapper.eq(User.NAME, user.getName());
+	}
+	if(user.getStatus()!=null){
+		wrapper.eq(User.STATUS, user.getStatus());
+	}
+	return userMapper.selectList(wrapper);
+}
+```
+
+mybatis-plus相关文档可以参考[mybatis-plus-doc](http://baomidou.oschina.io/mybatis-plus-doc/#/)
