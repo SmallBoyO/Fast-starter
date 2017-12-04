@@ -50,6 +50,10 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ---|---|---
 fast.swagger.basepackage | swagger扫描的基础包 |
 
+## 项目路径
+- druid监控路径:[http://127.0.0.1:8080/druid/](http://127.0.0.1:8080/druid/)
+- swagger文档路径:[http://127.0.0.1:8080/swagger-ui.html](http://127.0.0.1:8080/swagger-ui.html)
+
 ## 编写代码
 ### 示例项目
 [https://gitee.com/SmallBoys/fast-starter-demo](https://gitee.com/SmallBoys/fast-starter-demo)
@@ -142,5 +146,4 @@ public List<User> getUserList( UserListVO user ) {
 	return userMapper.selectList(wrapper);
 }
 ```
-
 mybatis-plus相关文档可以参考[mybatis-plus-doc](http://baomidou.oschina.io/mybatis-plus-doc/#/)
