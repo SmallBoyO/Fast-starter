@@ -113,7 +113,7 @@ public class JDBCConfiguration {
             datasource.setConnectionProperties(connectionProperties);
         }
 
-        List<Filter> filters = new ArrayList<>();
+        List<Filter> filters = new ArrayList<Filter>();
         filters.add(statFilter());
         filters.add(wallFilter());
         datasource.setProxyFilters(filters);
