@@ -158,7 +158,7 @@ public class JDBCConfiguration {
         filter.setWebAppStat(new WebAppStat("**", 1000));
         filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         filterRegistrationBean.addInitParameter("profileEnable", "true");
-        filterRegistrationBean.addInitParameter("sessionStatEnable", "false");
+        filterRegistrationBean.addInitParameter("sessionStatEnable", "true");
         filterRegistrationBean.setFilter(filter);
         return filterRegistrationBean;
     }

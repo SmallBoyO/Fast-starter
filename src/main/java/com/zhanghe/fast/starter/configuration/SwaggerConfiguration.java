@@ -10,6 +10,7 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -32,14 +33,19 @@ public class SwaggerConfiguration {
                 .build();
     }
 
-    @SuppressWarnings("deprecation")
-	private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("Fast RESTful APIs")
-                .description("")
-                .termsOfServiceUrl("")
-                .contact("SmallBoys")
-                .version("1.0")
-                .build();
+    private ApiInfo apiInfo() {
+        ApiInfoBuilder apiInfoBuilder = new ApiInfoBuilder();
+        if(swaggerProperties.getTitle()!=null){
+        	apiInfoBuilder.title(swaggerProperties.getTitle());
+        }
+        if(swaggerProperties.getContractName()!=null&&swaggerProperties.getContractUrl()!=null&&
+        		swaggerProperties.getContractEmail()!=null){
+        	apiInfoBuilder.contact(new Contact(swaggerProperties.getContractName(), swaggerProperties.getContractUrl(),
+        			swaggerProperties.getContractEmail()));
+        }
+        if(swaggerProperties.getVersion()!=null){
+        	apiInfoBuilder.version(swaggerProperties.getVersion());
+        }
+        return apiInfoBuilder.build();
     }
 }
