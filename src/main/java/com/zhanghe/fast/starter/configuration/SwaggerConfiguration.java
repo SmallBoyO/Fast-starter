@@ -10,10 +10,16 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
+/**  
+ * SwaggerConfiguration
+ *   
+ * @author Clevo  
+ * @date 2017/12/11 21:31 
+ */  
 @Configuration
 @EnableSwagger2
 @EnableConfigurationProperties(SwaggerProperties.class)
@@ -38,7 +44,7 @@ public class SwaggerConfiguration {
                 .title("Fast RESTful APIs")
                 .description("")
                 .termsOfServiceUrl("")
-                .contact("SmallBoys")
+                .contact(new Contact("SmallBoys","","554645932@qq.com"))
                 .version("1.0")
                 .build();
     }

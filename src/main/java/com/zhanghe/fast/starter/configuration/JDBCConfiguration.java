@@ -20,7 +20,12 @@ import com.alibaba.druid.support.http.WebStatFilter;
 import com.alibaba.druid.support.http.stat.WebAppStat;
 import com.alibaba.druid.wall.WallConfig;
 import com.alibaba.druid.wall.WallFilter;
-
+/**  
+ * JDBCConfiguration
+ *   
+ * @author Clevo  
+ * @date 2017/12/11 21:31
+ */  
 @Configuration
 public class JDBCConfiguration {
 	
@@ -113,7 +118,7 @@ public class JDBCConfiguration {
             datasource.setConnectionProperties(connectionProperties);
         }
 
-        List<Filter> filters = new ArrayList<>();
+        List<Filter> filters = new ArrayList<Filter>();
         filters.add(statFilter());
         filters.add(wallFilter());
         datasource.setProxyFilters(filters);
@@ -152,7 +157,7 @@ public class JDBCConfiguration {
     }
 
     @Bean
-    public FilterRegistrationBean DruidWebStatFilter() {
+    public FilterRegistrationBean druidWebStatFilter() {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
         WebStatFilter filter = new WebStatFilter();
         filter.setWebAppStat(new WebAppStat("**", 1000));
