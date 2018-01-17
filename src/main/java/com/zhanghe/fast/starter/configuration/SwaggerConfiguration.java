@@ -38,14 +38,20 @@ public class SwaggerConfiguration {
                 .build();
     }
 
-    @SuppressWarnings("deprecation")
-	private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("Fast RESTful APIs")
-                .description("")
-                .termsOfServiceUrl("")
-                .contact(new Contact("SmallBoys","","554645932@qq.com"))
-                .version("1.0")
-                .build();
+
+    private ApiInfo apiInfo() {
+        ApiInfoBuilder apiInfoBuilder = new ApiInfoBuilder();
+        if(swaggerProperties.getTitle()!=null){
+        	apiInfoBuilder.title(swaggerProperties.getTitle());
+        }
+        if(swaggerProperties.getContractName()!=null&&swaggerProperties.getContractUrl()!=null&&
+        		swaggerProperties.getContractEmail()!=null){
+        	apiInfoBuilder.contact(new Contact(swaggerProperties.getContractName(), swaggerProperties.getContractUrl(),
+        			swaggerProperties.getContractEmail()));
+        }
+        if(swaggerProperties.getVersion()!=null){
+        	apiInfoBuilder.version(swaggerProperties.getVersion());
+        }
+        return apiInfoBuilder.build();
     }
 }

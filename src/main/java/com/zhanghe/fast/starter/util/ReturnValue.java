@@ -21,11 +21,6 @@ public class ReturnValue<T> {
 		this.message = message;
 	}
 	
-	public String toJson(){
-		Gson gson = new Gson();
-		return gson.toJson(this);
-	}
-	
 	public Integer ret = 1;
 	public String message;
 	public T obj;
@@ -65,5 +60,8 @@ public class ReturnValue<T> {
 		this.result = result;
 	}
 	
-	
+	public String toJson(){
+		Gson gson = new Gson();
+		return gson.toJson(this);
+	}
 }
