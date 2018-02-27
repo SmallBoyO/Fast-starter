@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 
 public class ReturnValue<T> {
 	
-	
 	public ReturnValue(){
 		super();
 	}
@@ -14,6 +13,25 @@ public class ReturnValue<T> {
 		super();
 		this.ret = ret;
 		this.message = message;
+	}
+	
+	public ReturnValue( Integer ret, String message,T obj ){
+		super();
+		this.ret = ret;
+		this.message = message;
+		this.obj = obj;
+	}
+	
+	public ReturnValue( Integer ret, String message,List<T> result ){
+		super();
+		this.ret = ret;
+		this.message = message;
+		this.result = result;
+	}
+	
+	public String toJson(){
+		Gson gson = new Gson();
+		return gson.toJson(this);
 	}
 	
 	public Integer ret = 1;
@@ -53,10 +71,5 @@ public class ReturnValue<T> {
 	}
 	public void setResult(List<T> result) {
 		this.result = result;
-	}
-	
-	public String toJson(){
-		Gson gson = new Gson();
-		return gson.toJson(this);
 	}
 }
