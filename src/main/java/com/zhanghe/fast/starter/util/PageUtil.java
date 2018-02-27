@@ -4,7 +4,12 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.google.gson.Gson;
-
+/**  
+ * PageUtil
+ *   
+ * @author Clevo  
+ * @date 2017/12/11 21:32 
+ */  
 public class PageUtil<T> {
 	
     private Long correntPage;

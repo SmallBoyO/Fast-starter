@@ -9,7 +9,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
 import com.zhanghe.fast.starter.util.ReturnValue;
-
+/**  
+ * ValidateTreatement
+ *   
+ * @author Clevo  
+ * @date 2017/12/11 21:28
+ */  
 @Aspect
 @Configuration
 public class ValidateTreatement {
@@ -35,7 +40,8 @@ public class ValidateTreatement {
          for(Object arg:args){
         	 if(arg instanceof BindingResult){
         		 BindingResult result = (BindingResult) arg;
-        		 if (result.getErrorCount() > 0) {//验证出错
+				 //验证出错
+        		 if (result.getErrorCount() > 0) {
         				ReturnValue<String> errorresult = new ReturnValue<String>(-2, "参数验证不通过！");
         				String errormsg = "";
         				for (FieldError error : result.getFieldErrors()) {

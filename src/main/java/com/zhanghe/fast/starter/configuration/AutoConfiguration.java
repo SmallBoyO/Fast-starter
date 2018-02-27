@@ -4,15 +4,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.zhanghe.fast.starter.aop.ValidateTreatement;
-import com.zhanghe.fast.starter.service.UserService;
-
+/**  
+ * AutoConfiguration
+ *   
+ * @author Clevo  
+ * @date 2017/12/11 21:27
+ */  
 @Configuration
 public class AutoConfiguration {
-	
-    @Bean
-    public UserService dbCountRunner() {
-        return new UserService();
-    }
+
     
     @Bean
     public ValidateTreatement validateTreatement() {

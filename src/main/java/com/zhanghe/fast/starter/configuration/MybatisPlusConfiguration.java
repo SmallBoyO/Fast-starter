@@ -17,7 +17,12 @@ import com.baomidou.mybatisplus.MybatisConfiguration;
 import com.baomidou.mybatisplus.MybatisXMLLanguageDriver;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
-
+/**  
+ * MybatisPlusConfiguration
+ *   
+ * @author Clevo  
+ * @date 2017/12/11 21:31 
+ */  
 @Configuration
 public class MybatisPlusConfiguration {
 	
