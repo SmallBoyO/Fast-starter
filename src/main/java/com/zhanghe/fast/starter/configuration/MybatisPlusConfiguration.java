@@ -7,6 +7,8 @@ import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
 import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.DefaultResourceLoader;
@@ -24,6 +26,7 @@ import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
  * @date 2017/12/11 21:31 
  */  
 @Configuration
+@ConditionalOnBean(DataSource.class)
 public class MybatisPlusConfiguration {
 	
 	@Autowired

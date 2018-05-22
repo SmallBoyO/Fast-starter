@@ -30,11 +30,11 @@ public class ValidateTreatement {
      * ~第五个 * 任意方法
      * ~ ..匹配任意数量的参数.
      */
-     @Pointcut("execution(* *.controller.*.*(..))")
-     public void webLog(){}
+     @Pointcut("execution(* *..controller.*.*(..))")
+     public void ControllerAOP(){}
      
-     @Around("execution(* *..controller.*.*(..))")
-     public Object twiceAsOld1(ProceedingJoinPoint pjp) throws Throwable{
+     @Around("ControllerAOP()")
+     public Object ControllerAOPAround(ProceedingJoinPoint pjp) throws Throwable{
     	 System.out.println("---");
          Object[] args = pjp.getArgs();
          for(Object arg:args){

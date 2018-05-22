@@ -6,6 +6,9 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +30,9 @@ import com.alibaba.druid.wall.WallFilter;
  * @date 2017/12/11 21:31
  */  
 @Configuration
+@ConditionalOnMissingBean(DataSource.class)
+//@ConditionalOnExpression("${fast.jdbc.enabled:true}")
+@ConditionalOnProperty(prefix = "fast.jdbc",name = "enabled",havingValue = "true")
 public class JDBCConfiguration {
 	
 	@Value("${spring.datasource.url:#{null}}")

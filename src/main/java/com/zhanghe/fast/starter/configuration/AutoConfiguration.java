@@ -13,7 +13,7 @@ import com.zhanghe.fast.starter.aop.ValidateTreatement;
 @Configuration
 public class AutoConfiguration {
 
-    
+
     @Bean
     public ValidateTreatement validateTreatement() {
         return new ValidateTreatement();
