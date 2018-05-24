@@ -20,20 +20,26 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	public String getHeader(String name) {
 		return HtmlUtils.htmlEscape(super.getHeader(name));
 	}
-	
+
 	@Override
 	public String getParameter(String name) {
-		return HtmlUtils.htmlEscape(super.getParameter(name));
+		if(super.getParameter(name)!=null){
+			return HtmlUtils.htmlEscape(super.getParameter(name));
+		}else{
+			return null;
+		}
 	}
-	
+
 	@Override
 	public String[] getParameterValues(String name) {
 		String[] values = super.getParameterValues(name);
 		if(values!=null){
 			int len = values.length;
 			String[] newvalues = new String[len];
-			for(int i=0;i<len;i++){
-				newvalues[i] = HtmlUtils.htmlEscape(values[i]);
+			if(newvalues!=null){
+				for(int i=0;i<len;i++){
+					newvalues[i] = HtmlUtils.htmlEscape(values[i]);
+				}
 			}
 			return newvalues;
 		}else{

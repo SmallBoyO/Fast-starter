@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Clevo
  * @date 2018/1/9 21:33
  */
-@WebFilter(filterName = "XssFilter" ,urlPatterns = "/*" ,asyncSupported = true)
+//@WebFilter(filterName = "XssFilter" ,urlPatterns = "/*" ,asyncSupported = true)
 public class XssFilter implements Filter{
 
 	@Override
